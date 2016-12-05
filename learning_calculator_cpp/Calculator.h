@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -8,15 +9,13 @@ using namespace std;
 class Calculator
 {
 public:
-
 	vector < double > data;
 
 	Calculator();
 
-	string start();
+	void getUserInput();
 	double sum();
-
-	~Calculator();
+	double product();
 private:
 };
 

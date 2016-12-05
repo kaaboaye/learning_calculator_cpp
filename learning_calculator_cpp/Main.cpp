@@ -7,34 +7,15 @@ using namespace std;
 int main()
 {
 	Calculator calc;
+	
+	calc.getUserInput();
 
-	string input;
+	cout << "Suma: " << calc.sum() << endl;
+	cout << "Iloczyn: " << calc.product() << endl;
 
-	cout << calc.start() << endl;
+	cout << endl << "Naciœnij [Enter] aby zakonczyc.";
+	string null;
+	getline(cin, null);
 
-	while (true)
-	{
-		getline(cin, input);
-
-		try
-		{
-			if (input != "")
-			{
-				calc.data.push_back(stod(input));
-			}
-			else
-			{
-				break;
-			}
-		}
-		catch (const std::exception& e)
-		{
-			cout << "Podano nieprawidlowa liczbe." << endl;
-		}
-
-	}
-
-	cout << calc.sum();
-	getline(cin, input);
 	return 0;
 }

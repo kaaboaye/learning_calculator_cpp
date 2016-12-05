@@ -1,14 +1,36 @@
 #include "Calculator.h"
 
-
 Calculator::Calculator()
 {
 	data.clear();
 }
 
-string Calculator::start()
+void Calculator::getUserInput()
 {
-	return "Podaj liczby do zsumowania. Dwukrotny [Enter] zatwierdzi.";
+	string input;
+
+	cout << "Podaj liczby do zsumowania. Pusta linia zatwierdzi." << endl;
+
+	while (true)
+	{
+		getline(cin, input);
+
+		try
+		{
+			if (input != "")
+			{
+				data.push_back(stod(input));
+			}
+			else
+			{
+				break;
+			}
+		}
+		catch (...)
+		{
+			cout << "Podano nieprawidlowa liczbe." << endl;
+		}
+	}
 }
 
 double Calculator::sum()
@@ -23,6 +45,15 @@ double Calculator::sum()
 	return output;
 }
 
-Calculator::~Calculator()
+
+double Calculator::product()
 {
+	double output = 1;
+
+	for (int i = 0; i < data.size(); i++)
+	{
+		output *= data[i];
+	}
+
+	return output;
 }
